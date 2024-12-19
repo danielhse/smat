@@ -6,7 +6,7 @@
 #include <time.h>
 #include <sys/time.h>
 #include <cstring>
-
+#include <iostream>
 class Tester {
 public:
     explicit Tester(size_t M = 512, size_t N = 2048, size_t K = 1024, size_t warmup_iterations = 1,
@@ -165,8 +165,21 @@ public:
 
     template <typename Func>
     void evaluateSparse2(Func &&hgemm, const std::string &name) {
-        HLOG("----------------- Sparse Evaluating %s -----------------", name.c_str());
+        //  HLOG("----------------- Sparse Evaluating %s -----------------", name.c_str());
+        std::cout << "----------------- Sparse Evaluating " << name << " -----------------" << std::endl;
+
         //HLOG("%d", m_A_sparse->getBlockInfo_host()[0]);
+        // Print the dimensions of the sparse matrix and result matrix
+        //  HLOG("Sparse matrix dimensions (m_A_sparse): %zu x %zu", m_A_sparse->getRow(), m_A_sparse->getCol());
+        //  HLOG("Result matrix dimensions (m_C_for_sparse): %zu x %zu", m_C_for_sparse->getRow(), m_C_for_sparse->getCol());
+        // Print the dimensions of the sparse matrix
+        std::cout << "Sparse matrix dimensions (m_A_sparse): "
+                  << m_A_sparse->getRow() << " x " << m_A_sparse->getCol() << std::endl;
+
+        // Print the dimensions of the result matrix
+        std::cout << "Result matrix dimensions (m_C_for_sparse): "
+                  << m_C_for_sparse->getRow() << " x " << m_C_for_sparse->getCol() << std::endl;
+
         usleep(m_sleep_duration * 1000);
         m_C_for_sparse->tearUp(m_base_for_sparse);
 
@@ -183,7 +196,8 @@ public:
         cudaDeviceSynchronize();
         gettimeofday(&t2, NULL);
         m_warmup_time = ((t2.tv_sec - t1.tv_sec) * 1000.0 + (t2.tv_usec - t1.tv_usec) / 1000.0) / static_cast<double>(m_warmup_iterations);
-        HLOG("Warm up time: %.3f ms", m_warmup_time);
+        // HLOG("Warm up time: %.3f ms", m_warmup_time);
+        std::cout << "Warm-up time: " << m_warmup_time << " ms" << std::endl;
 
         if (m_enable_sparse_check && 0) {
             m_C_for_sparse->moveToHost();

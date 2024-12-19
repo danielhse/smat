@@ -1,0 +1,44 @@
+==PROF== Connected to process 582649 (/dfs6/pub/hsud8/smat/src/cuda_hgemm/build/hgemm)
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:45 main] CUDA HGEMM start with 4 CPU processes on the 0-th GPU: NVIDIA A30
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:51 main] CUDA driver version / runtime version: 12.2 / 12.3
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:53 main] CUDA capability major/minor version number: 8.0
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:54 main] 56 multiprocessors, 64 CUDA cores/MP: 3584 CUDA cores
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:57 main] GPU max clock rate: 1440 MHz (1.44 GHz)
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:59 main] Memory clock rate: 1215 MHz (1.21 GHz)
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:61 main] Memory bus width: 3072-bit
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:62 main] Total amount of global memory: 24062 MBytes (25231032320 Bytes)
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:64 main] Total amount of constant memory: 64 KBytes (65536 Bytes)
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:66 main] Total amount of shared memory per block: 48 KBytes (49152 Bytes)
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:68 main] Total shared memory per multiprocessor: 164 KBytes (167936 Bytes)
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:70 main] L2 cache size: 24576 KBytes (25165824 Bytes)
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:72 main] Total number of registers available per block: 65536
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:73 main] Warp size: 32
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:74 main] Max number of threads per multiprocessor: 2048
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:75 main] Max number of threads per block: 1024
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:76 main] Max dimension size of a thread block (x,y,z): (1024, 1024, 64)
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:78 main] Max dimension size of a grid size (x,y,z): (2147483647, 65535, 65535)
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:81 main] A (512 x 512) * B (512 x 512) = C (512 x 512), N_MULT: 16
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:82 main] Profiling: enable wmma: 1, enable mma: 1, warmup iterations: 1, profiling iterations: 1, sleep duration: 100 ms, enable check: 0
+[HGEMM 2024-11-29 17:47:49 582649:582649 main.cu:90 main] Input .mtx: /pub/hsud8/smat/src/matrices/suitesparse/Bova/rma10/rma10.mtx
+[HGEMM 2024-11-29 17:47:50 582649:582649 matrix.h:150 SparseMatrix] Read /pub/hsud8/smat/src/matrices/suitesparse/Bova/rma10/rma10.mtx
+[HGEMM 2024-11-29 17:47:50 582649:582649 matrix.h:156 SparseMatrix] 46848 x 46848, nnz = 2374001, A[0] = inf
+[HGEMM 2024-11-29 17:47:50 582649:582649 matrix.h:175 SparseMatrix] Finished creating BCSR from CSR
+[HGEMM 2024-11-29 17:47:50 582649:582649 matrix.h:176 SparseMatrix] 8573184 total blocks, 39938 nonzero blocks, 34864 dense blocks, 5074 sparse blocks
+[HGEMM 2024-11-29 17:47:50 582649:582649 matrix.h:43 Matrix] Matrix A: 512 * 512, cpu: 0x55a4af016090, gpu: 0x7ff639c57e00
+[HGEMM 2024-11-29 17:47:50 582649:582649 matrix.h:43 Matrix] Matrix B: 512 * 512, cpu: 0x55a4af0964e0, gpu: 0x7ff639cd7e00
+[HGEMM 2024-11-29 17:47:50 582649:582649 matrix.h:43 Matrix] Matrix B for sparse: 46848 * 128, cpu: 0x7ff6604ba010, gpu: 0x7ff645200000
+[HGEMM 2024-11-29 17:47:50 582649:582649 matrix.h:43 Matrix] Matrix C: 512 * 512, cpu: 0x55a4af117990, gpu: 0x7ff639d57e00
+[HGEMM 2024-11-29 17:47:50 582649:582649 matrix.h:43 Matrix] Matrix C for sparse: 46848 * 128, cpu: 0x7ff64c10e010, gpu: 0x7ff63f800000
+[HGEMM 2024-11-29 17:47:50 582649:582649 matrix.h:43 Matrix] Matrix Base: 512 * 512, cpu: 0x55a4af198bd0, gpu: 0x7ff639e00000
+[HGEMM 2024-11-29 17:47:50 582649:582649 matrix.h:43 Matrix] Matrix Base: 46848 * 128, cpu: 0x7ff623325010, gpu: 0x7ff640400000
+----------------- Sparse Evaluating Mma-CBT-Kernel -----------------
+Sparse matrix dimensions (m_A_sparse): 46848 x 46848
+Result matrix dimensions (m_C_for_sparse): 46848 x 128
+==PROF== Profiling "mmaCBTKernelSparse" - 0: 0%....50%....100% - 47 passes
+Warm-up time: 3399.83 ms
+==PROF== Profiling "mmaCBTKernelSparse" - 1: 0%....50%....100% - 47 passes
+[HGEMM 2024-11-29 17:47:56 582649:582649 tester.h:369 profileSparse2] 0.000000
+[HGEMM 2024-11-29 17:47:56 582649:582649 tester.h:388 profileSparse2] Mma-CBT-Kernel exit, profiling time: 2166.444 ms (100.00%), throughput: 0.000 TFLOPS (100.00%)
+[HGEMM 2024-11-29 17:47:56 582649:582649 main.cu:103 main] Done
+==PROF== Disconnected from process 582649
+==PROF== Report: /dfs6/pub/hsud8/smat/src/SMAT_A30_rma10.ncu-rep
